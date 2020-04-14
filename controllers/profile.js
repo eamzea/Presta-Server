@@ -6,7 +6,7 @@ const Profile = async (req, res, next) => {
   try {
     const profile = await User.findOne({ username });
 
-    if (req.session.currentUser == profile) {
+    if ((req.session.currentUser.username == profile, username)) {
       res.status(200).json({ profile, owner: true });
     } else {
       res.status(200).json({ profile, owner: false });

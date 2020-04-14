@@ -57,7 +57,7 @@ app.use(
 app.use("/", routes);
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT} !`);
+  console.log(`Lend app listening on port ${PORT} !`);
 });
 
 module.exports = app;
