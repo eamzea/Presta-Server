@@ -50,8 +50,6 @@ const SignUp = async (req, res, next) => {
         since,
       });
 
-      req.session.currentUser = user;
-
       res.status(200).json(user);
     } else {
       res
