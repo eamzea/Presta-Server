@@ -25,6 +25,7 @@ const SignUp = (req, res, next) => {
         priceLend,
       }).then((stuff) => {
         user.stuffs.push(stuff._id);
+        user.save()
         res.status(200).json({ stuff, user });
       });
     });

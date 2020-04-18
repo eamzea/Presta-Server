@@ -32,6 +32,7 @@ const SignUp = async (req, res, next) => {
     if (
       name != "" &&
       username != "" &&
+      phone != "" &&
       email != "" &&
       password != "" &&
       confirmPassword != "" &&

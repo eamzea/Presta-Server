@@ -54,11 +54,17 @@ app.use(
 );
 
 app.enable("trust proxy");
+app.disable("etag");
 
 app.use("/", routes);
 
 app.listen(PORT, () => {
   console.log(`Lend app listening on port ${PORT} !`);
+});
+
+app.use((req, res, next) => {
+  // If no routes match, send them the React HTML.
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 module.exports = app;
