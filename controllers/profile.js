@@ -3,8 +3,6 @@ const User = require("../models/User");
 const Profile = async (req, res, next) => {
   const { username } = req.params;
 
-  console.log(req.params);
-
   try {
     const profile = await User.findOne({ username });
 

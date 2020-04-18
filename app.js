@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const routes = require("./routes/routes");
 const logger = require("morgan");
@@ -24,8 +23,8 @@ const app = express();
 
 // Middleware Setup
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -50,10 +49,11 @@ app.use(
 app.use(
   cors({
     credentials: true,
-    optionsSuccessStatus: 200,
     origin: ["http://localhost:3000"],
   })
 );
+
+app.enable("trust proxy");
 
 app.use("/", routes);
 
