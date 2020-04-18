@@ -7,6 +7,9 @@
     "dev": "DEBUG=presta-server:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www"
   },
+  "engines": {
+    "node": "10.15.3"
+  },
   "dependencies": {
     "bcrypt": "^4.0.1",
     "body-parser": "^1.18.3",
