@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const routes = require("./routes/routes");
 const logger = require("morgan");
 const path = require("path");
-const PORT = process.env.PORT || 3100;
+const PORT = process.env.PORT || 3000;
 
 const connectDB = require("./config/db");
 connectDB();
