@@ -7,7 +7,7 @@ const Contact = require("../controllers/contact");
 const AddStuff = require("../controllers/addStuff");
 const GetStuff = require("../controllers/getStuff");
 const Login = require("../controllers/login");
-const LogOut = require("../controllers/logout");
+const LogOut = require("../controllers/logOut");
 const EditProfile = require("../controllers/editProfile");
 const UploadPhoto = require("../controllers/uploadPhoto");
 
