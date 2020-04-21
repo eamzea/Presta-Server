@@ -12,18 +12,20 @@ const Login = require("../controllers/login");
 const LogOut = require("../controllers/logOut");
 const EditProfile = require("../controllers/editProfile");
 const UploadPhoto = require("../controllers/uploadPhoto");
+const AddRecommendation = require("../controllers/addRecommendation");
 
 /* Routes */
 router.get("/logged", Logged);
 router.post("/signup", SignUp);
 router.post("/login", Login);
+router.post("/upload-photo", uploader.single("img"), UploadPhoto);
 router.post("/add-new-stuff", AddStuff);
 router.get("/search/:stuff", StuffResults);
 router.get("/stuff/:id", GetStuff);
 router.get("/profile/:username", Profile);
 router.get("/contact/:username", Contact);
+router.post("/add-recommendation/:username", AddRecommendation);
 router.post("/edit-profile/:username", EditProfile);
-router.post("/upload-photo", uploader.single("img"), UploadPhoto);
 router.post("/logout", LogOut);
 
 module.exports = router;

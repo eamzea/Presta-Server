@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser");
 const routes = require("./routes/routes");
 const logger = require("morgan");
 const path = require("path");
-const PORT = process.env.PORT || 300;
+const PORT = process.env.PORT || 3100;
 
 const connectDB = require("./config/db");
 connectDB();
@@ -57,6 +57,10 @@ app.enable("trust proxy");
 app.disable("etag");
 
 app.use("/", routes);
+
+app.listen(PORT, () => {
+  console.log(`Lend app listening on port ${PORT} !`);
+});
 
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
