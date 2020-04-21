@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const Stuff = require("../models/Stuff");
 const bcrypt = require("bcrypt");
 
 const EditProfile = async (req, res, next) => {
@@ -27,6 +28,11 @@ const EditProfile = async (req, res, next) => {
 
         let newProfile = await User.findById(profileEdited._id);
 
+        await Stuff.updateMany(
+          { owner: newProfile._id },
+          { usernameOwner: newProfile.username }
+        );
+
         req.session.currentUser = newProfile;
 
         res.status(200).json(newProfile);
@@ -40,6 +46,11 @@ const EditProfile = async (req, res, next) => {
         });
 
         let newProfile = await User.findById(profileEdited._id);
+
+        await Stuff.updateMany(
+          { owner: newProfile._id },
+          { usernameOwner: newProfile.username }
+        );
 
         req.session.currentUser = newProfile;
 
@@ -60,6 +71,11 @@ const EditProfile = async (req, res, next) => {
 
         let newProfile = await User.findById(profileEdited._id);
 
+        await Stuff.updateMany(
+          { owner: newProfile._id },
+          { usernameOwner: newProfile.username }
+        );
+
         req.session.currentUser = newProfile;
 
         res.status(200).json(newProfile);
@@ -77,6 +93,11 @@ const EditProfile = async (req, res, next) => {
         });
 
         let newProfile = await User.findById(profileEdited._id);
+
+        await Stuff.updateMany(
+          { owner: newProfile._id },
+          { usernameOwner: newProfile.username }
+        );
 
         req.session.currentUser = newProfile;
 

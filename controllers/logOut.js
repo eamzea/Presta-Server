@@ -1,7 +1,7 @@
 const LogOut = async (req, res, next) => {
   try {
     req.session.destroy((err) => {
-      res.status(200);
+      res.status(200).json({ message: "Log out" });
     });
   } catch (error) {
     console.log(error);

@@ -5,11 +5,16 @@ const Login = async (req, res, next) => {
   const { credential, password } = req.body;
 
   try {
-    const user = await User.findOne({ username: credential });
-
-    if (bcrypt.compareSync(password, user.password)) {
-      req.session.currentUser = user;
+    if (req.session.currentUser) {
+      const user = req.session.currentUser;
       res.status(200).json(user);
+    } else {
+      const user = await User.findOne({ username: credential });
+
+      if (bcrypt.compareSync(password, user.password)) {
+        req.session.currentUser = user;
+        res.status(200).json(user);
+      }
     }
   } catch (error) {
     console.log(error);

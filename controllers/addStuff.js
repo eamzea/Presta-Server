@@ -1,31 +1,25 @@
-const moment = require("moment-timezone");
 const Stuff = require("../models/Stuff");
 const User = require("../models/User");
 
 const SignUp = (req, res, next) => {
-  const {
-    name,
-    quantity,
-    imgPath,
-    owner,
-    available,
-    realPrice,
-    priceLend,
-  } = req.body;
+  const { name, description, quantity, img, realPrice, priceLend } = req.body;
 
   try {
-    User.findById(owner).then((user) => {
+    const user = req.session.currentUser;
+    User.findById(user._id).then((user) => {
       Stuff.create({
         name,
+        description,
         quantity,
-        imgPath,
-        owner,
-        available,
+        imgPath: img,
+        owner: user._id,
+        available: true,
         realPrice,
         priceLend,
+        usernameOwner: user.username,
       }).then((stuff) => {
         user.stuffs.push(stuff._id);
-        user.save()
+        user.save();
         res.status(200).json({ stuff, user });
       });
     });

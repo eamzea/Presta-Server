@@ -5,26 +5,34 @@ const stuffSchema = new Schema(
   {
     name: {
       type: String,
-      trim: true
+      trim: true,
+    },
+    description: {
+      type: String,
+      trin: true,
     },
     quantity: {
       type: Number,
-      trim: true
+      trim: true,
     },
     imgPath: String,
     owner: {
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: "User",
+    },
+    usernameOwner: {
+      type: String,
+      trim: true,
     },
     available: {
       type: Boolean,
-      default: false
+      default: false,
     },
     realPrice: Number,
-    priceLend: Number
+    priceLend: Number,
   },
   {
-    timestamps: true
+    timestamps: true,
   }
 );
 
