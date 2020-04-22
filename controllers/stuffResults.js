@@ -11,7 +11,6 @@ const StuffResults = async (req, res, next) => {
 
     res.status(200).json(stuffs);
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: error });
   }
 };

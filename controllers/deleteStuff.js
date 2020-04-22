@@ -8,7 +8,6 @@ const DeleteStuff = async (req, res, next) => {
     await Stuff.findByIdAndDelete(stuff);
     res.status(200).json({ message: "Artículo eliminado" });
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: error });
   }
 };

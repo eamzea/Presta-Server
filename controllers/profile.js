@@ -21,7 +21,6 @@ const Profile = async (req, res, next) => {
       res.status(200).json({ profile, owner: false, stuffs, recom });
     }
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: error });
   }
 };

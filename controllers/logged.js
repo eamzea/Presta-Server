@@ -10,7 +10,6 @@ const Logged = async (req, res, next) => {
       res.status(200).json(null);
     }
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: error });
   }
 };

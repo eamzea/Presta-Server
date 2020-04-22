@@ -20,7 +20,6 @@ const AddRecommendation = (req, res, next) => {
       });
     });
   } catch (err) {
-    console.log(error);
     res.status(400).json({ message: error });
   }
 };

@@ -111,7 +111,6 @@ const SignUp = async (req, res, next) => {
         .json({ message: "Hubo un error inesperado, intenta de nuevo" });
     }
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: error });
   }
 };
