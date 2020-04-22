@@ -27,9 +27,13 @@ const userSchema = new Schema(
     ],
     verificationCode: String,
     expireCodeDate: String,
-    validatedEmail: {
+    validatedProfile: {
       type: Boolean,
       default: false,
+    },
+    validationWay: {
+      type: String,
+      enum: ["email", "phone"],
     },
     since: String,
     recommandations: [
