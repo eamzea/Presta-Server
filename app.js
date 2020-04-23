@@ -46,14 +46,17 @@ app.use(
   })
 );
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+  })
+);
 
 app.enable("trust proxy");
 app.disable("etag");
 
 app.use("/", routes);
-
-// app.listen(PORT, () => console.log("Lend conectada en puerto " + PORT));
 
 app.use((req, res, next) => {
   // If no routes match, send them the React HTML.
