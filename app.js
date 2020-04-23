@@ -46,12 +46,7 @@ app.use(
   })
 );
 
-app.use(
-  cors({
-    credentials: true,
-    origin: ["http://localhost:3000", "http://lendt.herokuapp.com/"],
-  })
-);
+app.use(cors());
 
 app.enable("trust proxy");
 app.disable("etag");
