@@ -34,7 +34,7 @@ router.get("/profile/:username", Profile);
 router.get("/contact/:username", Contact);
 router.post("/delete-stuff/:stuff", DeleteStuff);
 router.post("/toggle-stuff/:stuff", ToggleAvailability);
-router.post("/add-recommendation/:username", AddRecommendation);
+router.post("/add-recommendation/:userId", AddRecommendation);
 router.post("/edit-profile/:username", EditProfile);
 router.post("/logout", LogOut);
 

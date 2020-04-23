@@ -10,7 +10,13 @@ const recommendationSchema = new Schema(
     date: {
       type: String,
     },
-    name: String,
+    name: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    username: {
+      type: String,
+    },
     details: {
       type: String,
     },

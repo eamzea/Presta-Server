@@ -85,12 +85,10 @@ const SignUp = async (req, res, next) => {
 
       if (validationWay === "phone") {
         const message = await client.messages.create({
-          body: `Hola, ${name}, este es tu código de verificación ${verificationCode}`,
+          body: `Hola, ${name}, este es tu código de verificación ${verificationCode}. Entra a https://lendt.herokuapp.com/verification y pega el código`,
           to: `+52${phone}`, // Text this number
           from: "+12058462963", // From a valid Twilio number
         });
-
-        console.log(message.sid);
       }
 
       const user = await User.create({
@@ -98,6 +96,7 @@ const SignUp = async (req, res, next) => {
         username,
         password: hashPass,
         email,
+        phone,
         verificationCode,
         expireCodeDate,
         since,

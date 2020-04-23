@@ -36,7 +36,7 @@ const userSchema = new Schema(
       enum: ["email", "phone"],
     },
     since: String,
-    recommandations: [
+    recommendations: [
       {
         type: Schema.Types.ObjectId,
         ref: "Recommandations",

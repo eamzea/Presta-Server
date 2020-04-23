@@ -9,17 +9,19 @@ const Login = async (req, res, next) => {
       const user = req.session.currentUser;
       res.status(200).json(user);
     } else {
-      const user = await User.findOne({ username: credential });
+      const user = await User.findOne({ email: credential });
 
       if (user) {
         if (bcrypt.compareSync(password, user.password)) {
           req.session.currentUser = user;
           res.status(200).json(user);
         } else {
-          res.status(200).json({ message: "Tu contraseña no coincide" });
+          res.status(200).json({ messagePass: "Tu contraseña no coincide" });
         }
       } else {
-        res.status(200).json({ message: "No hemos encontrado este usuario" });
+        res
+          .status(200)
+          .json({ messageUser: "No hemos encontrado este usuario" });
       }
     }
   } catch (error) {
