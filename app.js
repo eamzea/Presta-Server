@@ -11,11 +11,6 @@ const logger = require("morgan");
 const path = require("path");
 const PORT = process.env.PORT || 3100;
 
-const mongoSanitize = require("express-mongo-sanitize");
-const helmet = require("helmet");
-const xss = require("xss-clean");
-const hpp = require("hpp");
-
 const connectDB = require("./config/db");
 connectDB();
 
@@ -31,11 +26,8 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(mongoSanitize());
-app.use(helmet());
-app.use(xss());
-app.use(hpp());
-app.use(cors());
+app.enable("trust proxy");
+app.disable("etag");
 
 // Express View engine setup
 
@@ -65,9 +57,6 @@ app.use(
 
 // Uncomment the next line for local environment
 // app.listen(PORT, () => console.log("Lend connected on port " + PORT));
-
-app.enable("trust proxy");
-app.disable("etag");
 
 app.use("/", routes);
 

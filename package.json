@@ -21,11 +21,8 @@
     "cors": "^2.8.5",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
-    "express-mongo-sanitize": "^2.0.0",
     "express-session": "^1.17.0",
     "hbs": "^4.1.1",
-    "helmet": "^3.22.0",
-    "hpp": "^0.2.3",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "mongoose": "^5.2.10",
@@ -34,8 +31,7 @@
     "multer-storage-cloudinary": "^2.2.1",
     "node-sass-middleware": "^0.11.0",
     "serve-favicon": "^2.5.0",
-    "twilio": "^3.42.2",
-    "xss-clean": "^0.1.1"
+    "twilio": "^3.42.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
