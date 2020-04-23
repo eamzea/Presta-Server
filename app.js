@@ -53,6 +53,8 @@ app.use(
   })
 );
 
+// app.listen(PORT, () => console.log("Lend connected on port " + PORT));
+
 app.enable("trust proxy");
 app.disable("etag");
 
