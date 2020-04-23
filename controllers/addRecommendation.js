@@ -9,27 +9,26 @@ const AddRecommendation = async (req, res, next) => {
   try {
     const author = await User.findById(name);
 
-    User.findByIdAndUpdate(userId).then((user) => {
-      const date = moment()
-        .tz("America/Mexico_City")
-        .locale("es")
-        .format("LLL");
+    let user = await User.findByIdAndUpdate(userId);
 
-      Recommendation.create({
-        owner: user._id,
-        date,
-        name: author._id,
-        username: author.username,
-        details,
-        rate,
-      }).then((recommendation) => {
-        user.recommendations.push(recommendation);
-        user.save();
-        res.status(200).json({ message: "Recomendación agregada con éxito" });
-      });
+    const date = moment().tz("America/Mexico_City").locale("es").format("LLL");
+
+    const recomm = await Recommendation.create({
+      owner: user._id,
+      date,
+      name: author._id,
+      username: author.username,
+      details,
+      rate,
     });
+
+    user.recommendations.push(recomm);
+    user.save();
+
+    res.status(200).json({ message: "Recomendación agregada con éxito" });
   } catch (err) {
-    res.status(400).json({ message: error });
+    console.log(err);
+    res.status(400).json({ message: err });
   }
 };
 
